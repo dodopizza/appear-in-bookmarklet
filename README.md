@@ -1,2 +1,2 @@
 # appear-in-bookmarklet
-appear in bookmarket to hide some elements for fullscreen use
+[Goto bookmarklet page](https://dodopizza.github.io/appear-in-bookmarklet/)
