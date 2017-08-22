@@ -1,16 +1,47 @@
 <html>
 <head>
-  <title>Букмарклет для appear.in</title>
+	<title>Букмарклет для appear.in</title>
+	<style>
+		.button {
+		    background-color: #4CAF50; /* Green */
+		    border: none;
+		    color: white;
+		    text-align: center;
+		    text-decoration: none;
+		    display: inline-block;
+		    font-size: 16px;
+		    padding: 10px;
+		    cursor: pointer;
+		    border-radius: 5px;
+		}
+
+		div.centered {
+		    width: 300px;
+		    height: 300px;
+		    position: absolute;
+		    margin: auto; top:0; bottom: 0; left: 0; right: 0;
+		}
+
+	</style>
 </head>
 <body>
-  Привет,<br>
-  перетяни
-    <a href="javascript:( $.getScript('https://rawgit.com/dodopizza/appear-in-bookmarklet/master/bookmarklet.js') );" >
-      эту ссылку
-    </a>
-  себе в закладки и нажми. 
-  <ul>
-    <li>Если ты уже на сайте - нажми на закладку;</li>
-    <li>Если ты еще не на сайте - закладка автоматически перенаправит тебя туда, затем нажми ее снова.</li>
-</body
-</html>
+	<div class="centered">
+
+		<a class="button" href="javascript:
+			var bookmarklet_url='https://rawgit.com/dodopizza/appear-in-bookmarklet/master/bookmarklet.js';
+		    if (window.jQuery)
+		    	$.getScript(bookmarklet_url);
+			else
+		    	document.write('<script src=\''+bookmarklet_url+'\'><\/script>');
+		" >appear.in bookmarklet</a>
+
+		<p>
+		Привет! Перетяни кнопку себе в закладки.
+		<p>
+		1. Если ты уже на сайте - нажми на закладку;
+		<p>
+		2. Если ты еще не на сайте - закладка автоматически перенаправит тебя туда, затем нажми ее снова.
+
+	</div>
+</body>
+</html
