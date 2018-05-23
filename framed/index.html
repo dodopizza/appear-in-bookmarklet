@@ -2,23 +2,48 @@
 <head>
 	<style>
 		#frm { border:0; position: fixed; left:0; top:0; width: 100%; height: 100%;  }
+		#info { z-index: 99; position: fixed; left: 5; bottom:1em; width: auto; height: auto; padding:5px; background: white; color: black; opacity: 0.6; }
 	</style>
 </head>
 <body>
+<div id="info">Refreshing .. </div>
 <iframe src="https://appear.in/osifsodifjdso" allow="*;" id="frm">
     Loading ..
 </iframe>
 </body>
 <script type="text/javascript">
 
+	function timeConversion(millisec) {
+        var seconds = (millisec / 1000).toFixed(0);
+        var minutes = (millisec / (1000 * 60)).toFixed(0);
+        var hours = (millisec / (1000 * 60 * 60)).toFixed(0);
+        var days = (millisec / (1000 * 60 * 60 * 24)).toFixed(0);
+        
+        if (seconds < 60) { return seconds + " сек "; } 
+        else if (minutes < 60) { return minutes + " мин "; } 
+        else if (hours < 24) { return hours + " ч "; } 
+        else { return days + " д " }
+    }
+
+
 	var iframe = document.getElementById('frm');
+	var info_elem = document.getElementById("info");
+
+	var refresh_time = 1000*60*60; // 1 hour
+	var countdown = refresh_time;
 
 	window.onload = function(){
-		setInterval(function(){
-			console.log("Refreshing iframe");
-    		iframe.src = iframe.src;
-		},1000*60*1);
-	}
 
+		setInterval(function(){
+			info_elem.innerHTML = "R: " + timeConversion(countdown);
+			countdown-=1000
+			if ( countdown <= 0 ){
+				countdown = refresh_time;
+				info_elem.innerHTML = "Refreshing .."
+    			iframe.src = iframe.src;
+			}
+		}, 1000);
+
+	}
 </script>
 </html>
